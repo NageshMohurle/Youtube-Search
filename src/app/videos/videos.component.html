@@ -1,0 +1,28 @@
+<div class="search-container">
+    <!-- Input field for searching videos -->
+    <img src="./images/logo.webp" alt="">
+    <input type="text" [(ngModel)]="queryIp" (keyup)="onSearchView()" class="search-input"
+        placeholder="Search videos...">
+    <div class="social-icons">
+
+    </div>
+</div>
+
+<div class="videos">
+    <!-- Loop through the videos array and display each video -->
+    <div class="video" *ngFor="let video of videos">
+        <div class="thumbnail">
+            <img [src]="video.snippet.thumbnails.medium.url" alt="{{ video.snippet.title }}">
+        </div>
+        <div class="video-info">
+            <h3 class="video-title">{{ video.snippet.title }}</h3>
+            <p class="channel-title">{{ video.snippet.channelTitle }}</p>
+        </div>
+        <a [href]="video.videoUrl" target="_blank" class="watch-btn">
+            <button class="ui right floated tiny red right labeled icon button">
+                <i class="external alternate icon"></i>
+                Watch
+            </button>
+        </a>
+    </div>
+</div>
